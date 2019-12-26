@@ -38,9 +38,9 @@ export const RoutedTabs = (props: IRoutedTabsProps) => {
       return path;
     };
     const path = removeEndingSlashes(props.location.pathname.toLowerCase());
-    const rootPath = removeEndingSlashes(props.match.path.toLowerCase());
+    const rootPath = removeEndingSlashes(props.match.url.toLowerCase());
 
-    // If props.match.path is a root path "redirect"
+    // If props.match.url is a root path "redirect"
     // to the default or first tab.
     if (path === rootPath) {
       const nextActiveTab =
@@ -59,7 +59,7 @@ export const RoutedTabs = (props: IRoutedTabsProps) => {
   }, [
     props.history,
     props.location.pathname,
-    props.match.path,
+    props.match.url,
     props.rootUrl,
     props.tabPanes,
     props.tabProps
